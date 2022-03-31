@@ -50,19 +50,16 @@ jobs:
         distribution: 'adopt'
         cache: maven
     - name: Build with Maven
-      run: mvn -ntp -Pprod verify jib:dockerBuild
-  push-image-to-docker-hub:
-    needs: build
-    runs-on: ubuntu-lates
-    steps:
-    - uses: actions/checkout@v2 # first action : checkout source code
+      run: mvn -ntp -Pprod jib:dockerBuild
+    - name: push-image-to-docker-hub
+      uses: actions/checkout@v2 # first action : checkout source code
     - name: docker login
       run: | # log into docker hub account
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - name: Docker Push
       run: docker push $DOCKER_USER/sample
   deploy:
-    needs: push-image-to-docker-hub
+    needs: build
     name: Pull and Deploy
     runs-on: ubuntu-latest
     steps:

@@ -50,7 +50,7 @@ jobs:
         distribution: 'adopt'
         cache: maven
     - name: Build with Maven
-      run: mvn -ntp -Pprod jib:dockerBuild
+      run: mvn -ntp -Pprod verify jib:dockerBuild
     - name: push-image-to-docker-hub
       uses: actions/checkout@v2 # first action : checkout source code
     - name: docker login

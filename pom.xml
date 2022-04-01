@@ -596,7 +596,7 @@
                             </platforms>
                         </from>
                         <to>
-                            <image>sample:latest</image>
+                            <image>learnwithparth/sample:latest</image>
                         </to>
                         <container>
                             <entrypoint>

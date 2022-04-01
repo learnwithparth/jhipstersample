@@ -6,7 +6,7 @@ on:
     branches: [ master ]
 jobs:
   deploy:
-    needs: build
+    #needs: build
     name: Pull and Deploy
     runs-on: ubuntu-latest
     steps:

@@ -28,7 +28,7 @@ jobs:
     - name: push-image-to-docker-hub
       uses: actions/checkout@v2 # first action : checkout source code
     - name: Docker Push
-      run: docker push learnwithparth/sample
+      run: docker push ${docker images -a}
   deploy:
     needs: build
     name: Pull and Deploy

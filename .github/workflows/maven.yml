@@ -39,12 +39,11 @@ jobs:
         key: ${{secrets.AWS_PRIVATE_KEY}}
         envs: HITHUB_SHA
         script: |
-          sudo su
-          yum install docker -y
-          systemctl start docker
-          systemctl enable docker
-          systemctl restart docker
-          docker pull learnwithparth/sample
-          docker stop sample
-          docker rm sample
-          docker run --detach --name sample -p 80:8080 learnwithparth/sample
+          sudo yum install docker -y
+          sudo systemctl start docker
+          sudo systemctl enable docker
+          sudo systemctl restart docker
+          sudo docker pull learnwithparth/sample
+          sudo docker stop sample
+          sudo docker rm sample
+          sudo docker run --name sample -p 80:8080 learnwithparth/sample

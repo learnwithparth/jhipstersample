@@ -19,7 +19,6 @@ jobs:
         key: ${{secrets.AWS_PRIVATE_KEY}}
         envs: HITHUB_SHA
         script: |
-          sudo yum install docker -y
           sudo docker pull learnwithparth/sample
           sudo docker stop sample
           sudo docker rm sample
